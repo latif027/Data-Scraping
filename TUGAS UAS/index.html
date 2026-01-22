@@ -1,0 +1,44 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Data Berita Detik Jatim</title>
+    <style>
+        body { font-family: Arial, sans-serif; }
+        table { width: 100%; border-collapse: collapse; }
+        th, td { border: 1px solid #ccc; padding: 10px; }
+        th { background: #f2f2f2; }
+        img { width: 120px; }
+    </style>
+</head>
+<body>
+
+<h2>Hasil Data Scraping Berita Detik Jatim</h2>
+
+<table>
+    <tr>
+        <th>No</th>
+        <th>Foto</th>
+        <th>Judul</th>
+        <th>Tanggal</th>
+    </tr>
+
+    {% for item in data %}
+    <tr>
+        <td>{{ loop.index }}</td>
+        <td>
+            {% if item.gambar %}
+                <img src="{{ item.gambar }}">
+            {% else %}
+                Tidak ada
+            {% endif %}
+        </td>
+        <td>{{ item.judul }}</td>
+        <td>{{ item.tanggal }}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+</body>
+</html>
